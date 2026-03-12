@@ -25,3 +25,5 @@ export async function updateTask(id, updates) {
   if (!res.ok) throw new Error("Failed to update task");
   return res.json();
 }
+
+export async function deleteTask(id) {}
