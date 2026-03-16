@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/api/tasks";
+const API_URL = "http://localhost:4000/api/tasks";
 
 export async function getTasks() {
   const res = await fetch(API_URL);
@@ -26,4 +26,8 @@ export async function updateTask(id, updates) {
   return res.json();
 }
 
-export async function deleteTask(id) {}
+export async function deleteTask(id) {
+  const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+  if (!res.ok) throw new Error("Failed to delete task: Error code - " + res.status + " - " + res.statusText);
+  return res.json();
+}
