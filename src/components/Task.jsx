@@ -41,7 +41,10 @@ export default function Task({ task, from, onRemove, onEdit }) {
           ✔
         </button>
         <button
-          onClick={() => { setDraft(task.text); setEditing(false); }}
+          onClick={() => {
+            setDraft(task.text);
+            setEditing(false);
+          }}
           className="text-gray-400 hover:text-gray-600 text-sm"
         >
           ✖

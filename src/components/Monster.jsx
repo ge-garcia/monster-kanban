@@ -73,11 +73,11 @@ export default function Monster({
       className={`${color} w-full rounded-3xl overflow-hidden shadow-xl flex flex-col`}
     >
       {/* Monster Head — eyes */}
-      <div className="w-full flex justify-around items-end py-6 gap-5">
+      <div className="w-full flex justify-center items-end py-6 gap-5">
         {[eyes.left, eyes.right].map((size, i) => (
           <div
             key={i}
-            className="relative bg-white rounded-full overflow-hidden flex-grow-1"
+            className="relative bg-white rounded-full overflow-hidden flex-shrink-0"
             style={{ width: size, height: size }}
             ref={setEyeRef}
           >
@@ -85,8 +85,8 @@ export default function Monster({
               ref={setPupilRef}
               className="absolute bg-black rounded-full transition-transform duration-75 ease-linear"
               style={{
-                width: "20%",
-                height: "80%",
+                width: "40%",
+                height: "40%",
                 top: "30%",
                 left: "30%",
               }}
@@ -98,13 +98,13 @@ export default function Monster({
       {/* Mouth */}
       <div className="w-full px-2 pb-3">
         <div className="bg-black/30 rounded-2xl overflow-hidden">
-          <Teeth direction="up" count={upperTeeth} />
+          <Teeth direction="down" count={upperTeeth} />
 
           <div className={`${bodyColor} mx-2 rounded-xl`}>
             <div className="p-3">{children}</div>
           </div>
 
-          <Teeth direction="down" count={lowerTeeth} />
+          <Teeth direction="up" count={lowerTeeth} />
         </div>
       </div>
     </div>
