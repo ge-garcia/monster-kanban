@@ -7,11 +7,11 @@ const db = new Database("./db/database.sqlite");
 // Create a table for the tasks if it doesn’t exist
 db.prepare(
   `
-    tasks (
+    CREATE TABLE IF NOT EXISTS tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    ttle TEXT NOT NULL,
+    title TEXT NOT NULL,
     status TEXT NOT NULL DEFAULT 'todo',
-    created_at DATETIME DEFAULT 
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 )
 `,
 ).run();
