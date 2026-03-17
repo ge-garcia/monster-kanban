@@ -41,7 +41,10 @@ export default function Task({ task, from, onRemove, onEdit }) {
           ✔
         </button>
         <button
-          onClick={() => { setDraft(task.text); setEditing(false); }}
+          onClick={() => {
+            setDraft(task.text);
+            setEditing(false);
+          }}
           className="text-gray-400 hover:text-gray-600 text-sm"
         >
           ✖
@@ -54,18 +57,18 @@ export default function Task({ task, from, onRemove, onEdit }) {
     <div
       draggable
       onDragStart={handleDragStart}
-      className="bg-white p-3 rounded-md shadow flex justify-between items-center cursor-grab hover:bg-gray-50 transition"
+      className="bg-white p-3 rounded-md shadow flex justify-between items-center cursor-grab hover:bg-gray-50 transition gap-2"
     >
       <p className="text-gray-700 flex-1">{task.text}</p>
       <button
         onClick={() => setEditing(true)}
-        className="text-gray-400 hover:text-gray-600 text-sm ml-2"
+        className="text-gray-400 hover:text-gray-600 text-sm"
       >
         ✏
       </button>
       <button
         onClick={() => onRemove(from, task.id)}
-        className="text-red-400 hover:text-red-600 text-sm ml-1"
+        className="text-red-400 hover:text-red-600 text-sm"
       >
         ✖
       </button>

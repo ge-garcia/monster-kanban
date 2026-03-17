@@ -60,16 +60,22 @@ export default function Column({
         </div>
 
         {/* Add Task Box */}
-        <div className="flex space-x-2">
+        <div className="flex gap-2">
           <input
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
-            className="flex-1 px-2 py-1 text-sm border rounded-md"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                handleAdd();
+              }
+            }}
+            className="w-full flex-1 px-2 py-1 text-sm border rounded-md"
             placeholder="New Task..."
           />
           <button
             onClick={handleAdd}
-            className="bg-white border text-sm px-3 rounded-md hover:bg-white/70 transition"
+            className="bg-white border px-2 text-sm rounded-md hover:bg-white/70 transition"
           >
             ➕
           </button>

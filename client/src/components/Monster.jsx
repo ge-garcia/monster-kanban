@@ -101,7 +101,7 @@ export default function Monster({
           <Teeth direction="down" count={upperTeeth} />
 
           <div className={`${bodyColor} mx-2 rounded-xl`}>
-            <div className="p-3">{children}</div>
+            <div className="p-3 flex flex-col">{children}</div>
           </div>
 
           <Teeth direction="up" count={lowerTeeth} />
